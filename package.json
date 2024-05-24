@@ -1,0 +1,38 @@
+{
+  "name": "javamgr",
+  "version": "0.1.0",
+  "description": "A java runtime manager for minecraft launchers.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "docs": "typedoc"
+  },
+  "keywords": [
+    "java",
+    "minecraft",
+    "minecraft-launcher-node",
+    "minecraft-launcher",
+    "launcher"
+  ],
+  "author": "HerozDotExe",
+  "homepage": "https://github.com/HerozDotExe/javamgr#readme",
+  "repository": {
+    "url": "https://github.com/HerozDotExe/javamgr"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.3.0",
+    "@types/node": "^20.12.12",
+    "esbuild": "^0.21.3",
+    "eslint": "9.x",
+    "globals": "^15.3.0",
+    "tsup": "^8.0.2",
+    "typedoc": "^0.25.13",
+    "typedoc-github-wiki-theme": "^2.0.0",
+    "typedoc-plugin-markdown": "^4.0.2",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "rc-v8"
+  }
+}
