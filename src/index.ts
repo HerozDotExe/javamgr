@@ -79,12 +79,6 @@ export class JavaManager {
         if (this.progressCallback) this.progressCallback(progress, total);
       }
     }
-
-    if (process.platform !== "win32") {
-      console.log(process.platform, process.platform !== "win32")
-      // Java executable seems read/write locked
-      await fs.chmod(join(destination, "bin", "java"), 0o777);
-    }
   }
 
   /**
