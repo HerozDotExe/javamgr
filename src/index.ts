@@ -2,7 +2,7 @@ import type { RuntimeManifest, Runtimes } from "./types.ts";
 import fs from "fs/promises";
 import { join } from "path";
 import { download, fs_exists, getComponent, getJSON, getOS } from "./utils.ts";
-import { hash } from "node:crypto";
+import { createHash } from "node:crypto";
 
 export * from "./types.ts";
 export { getComponent } from "./utils.ts";
@@ -154,8 +154,10 @@ export class JavaManager {
           await download(file.downloads.raw.url, fileTarget);
         } else {
           if (file.type === "file") {
-            const fileTargetHash = hash("sha1", await fs.readFile(fileTarget));
-            if (fileTargetHash !== file.downloads.raw.sha1) {
+            const hash = createHash("sha1")
+              .update(await fs.readFile(fileTarget))
+              .digest("hex");
+            if (hash !== file.downloads.raw.sha1) {
               console.log(fileTarget);
               await download(file.downloads.raw.url, fileTarget);
             }
